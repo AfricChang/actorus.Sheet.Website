@@ -1,0 +1,82 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import {
+  featureGroups,
+  getStaticLocalePaths,
+  notSupportedYet,
+  requireLocale,
+  siteCopy,
+  supportedScope,
+  text,
+} from "../../data/site";
+
+export function getStaticPaths() {
+  return getStaticLocalePaths();
+}
+
+const locale = requireLocale(Astro.params.locale);
+const copy = siteCopy[locale];
+---
+
+<SiteLayout
+  locale={locale}
+  relativePath="/features/"
+  title={copy.featuresPage.title}
+  description={copy.featuresPage.description}
+>
+  <section class="section">
+    <div class="container page-intro" data-reveal>
+      <div class="eyebrow">{locale === "en" ? "Features" : "功能"}</div>
+      <h1>{copy.featuresPage.title}</h1>
+      <p>{copy.featuresPage.description}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card-grid">
+        {
+          featureGroups.map((feature, index) => (
+            <article class="card" data-reveal={String((index % 3) + 1)}>
+              <h3>{text(feature.title, locale)}</h3>
+              <p>{text(feature.summary, locale)}</p>
+              <ul class="bullet-list">
+                {
+                  feature.bullets.map((bullet) => (
+                    <li>{text(bullet, locale)}</li>
+                  ))
+                }
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-grid">
+      <article class="panel" data-reveal>
+        <h3>{locale === "en" ? "Supported today" : "当前支持"}</h3>
+        <ul class="bullet-list">
+          {
+            supportedScope.map((item) => (
+              <li>{text(item, locale)}</li>
+            ))
+          }
+        </ul>
+      </article>
+
+      <article class="panel" data-reveal="2">
+        <h3>{locale === "en" ? "Not supported yet" : "暂不支持"}</h3>
+        <ul class="bullet-list">
+          {
+            notSupportedYet.map((item) => (
+              <li>{text(item, locale)}</li>
+            ))
+          }
+        </ul>
+      </article>
+    </div>
+  </section>
+</SiteLayout>

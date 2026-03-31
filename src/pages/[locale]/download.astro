@@ -1,0 +1,97 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import {
+  downloadEntries,
+  faqEntries,
+  getStaticLocalePaths,
+  requireLocale,
+  resolveLink,
+  routes,
+  siteCopy,
+  text,
+} from "../../data/site";
+
+export function getStaticPaths() {
+  return getStaticLocalePaths();
+}
+
+const locale = requireLocale(Astro.params.locale);
+const copy = siteCopy[locale];
+const externalTokens = ["productRepo", "productIssues", "productReleases", "examplesRepo"];
+---
+
+<SiteLayout
+  locale={locale}
+  relativePath="/download/"
+  title={copy.downloadPage.title}
+  description={copy.downloadPage.description}
+>
+  <section class="section">
+    <div class="container page-intro" data-reveal>
+      <div class="eyebrow">{locale === "en" ? "Download" : "下载"}</div>
+      <h1>{copy.downloadPage.title}</h1>
+      <p>{copy.downloadPage.description}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card-grid">
+        {
+          downloadEntries.map((entry, index) => (
+            <article class="card" data-reveal={String((index % 3) + 1)}>
+              <div class="card-meta">
+                <span class="pill alt">{text(entry.accessLabel, locale)}</span>
+              </div>
+              <h3>{text(entry.title, locale)}</h3>
+              <p>{text(entry.summary, locale)}</p>
+              <p class="muted">{text(entry.note, locale)}</p>
+              <a
+                class="card-action primary"
+                href={resolveLink(entry.linkToken, locale)}
+                target={externalTokens.includes(entry.linkToken) ? "_blank" : undefined}
+                rel={externalTokens.includes(entry.linkToken) ? "noreferrer" : undefined}
+              >
+                {text(entry.ctaLabel, locale)}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-grid">
+      <article class="panel" data-reveal>
+        <h3>{copy.downloadPage.faqTitle}</h3>
+        <ul class="timeline">
+          {
+            faqEntries.slice(0, 3).map((entry) => (
+              <li>
+                <span>
+                  <strong>{text(entry.question, locale)}</strong>
+                  <br />
+                  <span class="muted">{text(entry.answer, locale)}</span>
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+
+      <article class="panel" data-reveal="2">
+        <h3>{copy.downloadPage.ctaTitle}</h3>
+        <p>{copy.downloadPage.ctaBody}</p>
+        <div class="hero-actions">
+          <a class="button primary" href={resolveLink("contact", locale)}>
+            {routes.contact.label[locale]}
+          </a>
+          <a class="button secondary" href={resolveLink("docs", locale)}>
+            {routes.docs.label[locale]}
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+</SiteLayout>

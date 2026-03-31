@@ -1,0 +1,51 @@
+---
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import { getDocStaticPaths, type PublicDoc } from "../../../lib/docs";
+import { buildLocaleHref, requireLocale, routes, siteCopy } from "../../../data/site";
+
+export async function getStaticPaths() {
+  return getDocStaticPaths();
+}
+
+const locale = requireLocale(Astro.params.locale);
+const copy = siteCopy[locale];
+const { doc } = Astro.props as { doc: PublicDoc };
+---
+
+<SiteLayout
+  locale={locale}
+  relativePath={`/docs/${doc.slug}/`}
+  title={doc.title}
+  description={doc.description}
+>
+  <section class="section">
+    <div class="container doc-header" data-reveal>
+      <div class="eyebrow">{doc.categoryLabel}</div>
+      <h1 class="doc-title">{doc.title}</h1>
+      <p class="doc-summary">{doc.summary}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container doc-layout">
+      <article class="panel doc-panel" data-reveal>
+        <div class="docs-body" set:html={doc.html} />
+      </article>
+
+      <aside class="doc-sidebar">
+        <div class="panel" data-reveal="2">
+          <h3>{copy.docsDetail.relatedCta}</h3>
+          <p class="muted">{copy.contactPage.description}</p>
+          <div class="hero-actions">
+            <a class="button primary" href={buildLocaleHref(locale, routes.contact.path)}>
+              {copy.docsDetail.relatedButton}
+            </a>
+            <a class="button ghost" href={buildLocaleHref(locale, routes.docs.path)}>
+              {copy.docsDetail.backToDocs}
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</SiteLayout>

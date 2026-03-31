@@ -1,0 +1,76 @@
+---
+import SiteLayout from "../../../layouts/SiteLayout.astro";
+import { getDocs } from "../../../lib/docs";
+import {
+  docsCategoryLabels,
+  getStaticLocalePaths,
+  requireLocale,
+  siteCopy,
+  text,
+} from "../../../data/site";
+
+export function getStaticPaths() {
+  return getStaticLocalePaths();
+}
+
+const locale = requireLocale(Astro.params.locale);
+const copy = siteCopy[locale];
+const docs = await getDocs(locale);
+const categories = Object.keys(docsCategoryLabels) as Array<keyof typeof docsCategoryLabels>;
+---
+
+<SiteLayout
+  locale={locale}
+  relativePath="/docs/"
+  title={copy.docsPage.title}
+  description={copy.docsPage.description}
+>
+  <section class="section">
+    <div class="container page-intro" data-reveal>
+      <div class="eyebrow">Docs</div>
+      <h1>{copy.docsPage.title}</h1>
+      <p>{copy.docsPage.description}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {
+        docs.length === 0 ? (
+          <div class="notice warning">{copy.docsPage.emptyLabel}</div>
+        ) : (
+          categories.map((category) => {
+            const categoryDocs = docs.filter((doc) => doc.category === category);
+            if (categoryDocs.length === 0) {
+              return null;
+            }
+
+            return (
+              <div class="section">
+                <div class="section-heading" data-reveal>
+                  <div class="eyebrow">{text(docsCategoryLabels[category], locale)}</div>
+                </div>
+                <div class="docs-grid">
+                  {categoryDocs.map((doc, index) => (
+                    <article class="doc-card" data-reveal={String((index % 3) + 1)}>
+                      <div class="card-meta">
+                        <span class="pill alt">{doc.categoryLabel}</span>
+                      </div>
+                      <h3>{doc.title}</h3>
+                      <p>{doc.description}</p>
+                      <footer>
+                        <a class="card-action secondary" href={`./${doc.slug}/`}>
+                          {copy.docsPage.readDocLabel}
+                        </a>
+                      </footer>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            );
+          })
+        )
+      }
+    </div>
+  </section>
+</SiteLayout>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">AcTorus.Sheet</title>
+  <desc id="desc">Commercial .NET spreadsheet engine for .xlsx-first workflows.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f7f2ea" />
+      <stop offset="100%" stop-color="#efe7db" />
+    </linearGradient>
+    <linearGradient id="ink" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#182230" />
+      <stop offset="100%" stop-color="#2d728c" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#c96428" />
+      <stop offset="100%" stop-color="#efb65a" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1080" cy="96" r="120" fill="rgba(45,114,140,0.08)" />
+  <circle cx="120" cy="540" r="180" fill="rgba(201,100,40,0.08)" />
+  <rect x="78" y="76" width="124" height="124" rx="28" fill="url(#ink)" />
+  <path
+    d="M111 170 152 93h25l42 77h-22l-8-16h-49l-8 16Zm40-34h27l-13.5-27Z"
+    fill="#f7f2ea"
+  />
+  <rect x="190" y="94" width="28" height="28" rx="9" fill="url(#accent)" />
+  <text x="78" y="312" fill="#182230" font-family="Space Grotesk, IBM Plex Sans, sans-serif" font-size="84" font-weight="700">
+    AcTorus.Sheet
+  </text>
+  <text x="78" y="384" fill="#435061" font-family="IBM Plex Sans, Noto Sans SC, sans-serif" font-size="34">
+    Commercial .NET spreadsheet engine for .xlsx-first workflows
+  </text>
+  <text x="78" y="446" fill="#435061" font-family="IBM Plex Sans, Noto Sans SC, sans-serif" font-size="28">
+    Features, use cases, docs, downloads, and contact on one bilingual public site.
+  </text>
+</svg>

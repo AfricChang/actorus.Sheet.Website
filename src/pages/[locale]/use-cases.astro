@@ -1,0 +1,57 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import {
+  getStaticLocalePaths,
+  requireLocale,
+  siteCopy,
+  text,
+  useCases,
+} from "../../data/site";
+
+export function getStaticPaths() {
+  return getStaticLocalePaths();
+}
+
+const locale = requireLocale(Astro.params.locale);
+const copy = siteCopy[locale];
+---
+
+<SiteLayout
+  locale={locale}
+  relativePath="/use-cases/"
+  title={copy.useCasesPage.title}
+  description={copy.useCasesPage.description}
+>
+  <section class="section">
+    <div class="container page-intro" data-reveal>
+      <div class="eyebrow">{locale === "en" ? "Use Cases" : "场景"}</div>
+      <h1>{copy.useCasesPage.title}</h1>
+      <p>{copy.useCasesPage.description}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card-grid">
+        {
+          useCases.map((entry, index) => (
+            <article class="card" data-reveal={String((index % 3) + 1)}>
+              <div class="card-meta">
+                <span class="pill alt">{text(entry.audience, locale)}</span>
+              </div>
+              <h3>{text(entry.title, locale)}</h3>
+              <p>{text(entry.summary, locale)}</p>
+              <ul class="bullet-list">
+                {
+                  entry.outcomes.map((outcome) => (
+                    <li>{text(outcome, locale)}</li>
+                  ))
+                }
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</SiteLayout>

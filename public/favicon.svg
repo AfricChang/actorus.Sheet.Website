@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title>AcTorus.Sheet</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#182230" />
+      <stop offset="100%" stop-color="#2d728c" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#c96428" />
+      <stop offset="100%" stop-color="#f0ba6b" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)" />
+  <path
+    d="M36 94 56.8 33.5h15.1L92 94H77.4l-4.8-14.2H55.1L50.2 94Zm22.1-25.9h11.3L64 51.6Z"
+    fill="#f7f4ed"
+  />
+  <rect x="79" y="33" width="14" height="14" rx="4" fill="url(#accent)" />
+</svg>

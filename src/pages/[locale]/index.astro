@@ -1,0 +1,291 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import {
+  buildLocaleHref,
+  featureGroups,
+  getStaticLocalePaths,
+  heroSignals,
+  notSupportedYet,
+  previewCards,
+  quickStartSteps,
+  requireLocale,
+  routes,
+  siteCopy,
+  supportedScope,
+  text,
+  useCases,
+  workflowSteps,
+} from "../../data/site";
+
+export function getStaticPaths() {
+  return getStaticLocalePaths();
+}
+
+const locale = requireLocale(Astro.params.locale);
+const copy = siteCopy[locale];
+---
+
+<SiteLayout
+  locale={locale}
+  relativePath="/"
+  title={copy.browserTitle}
+  description={copy.siteDescription}
+>
+  <section class="hero">
+    <div class="container hero-grid">
+      <article class="hero-panel" data-reveal>
+        <div class="eyebrow">{copy.hero.eyebrow}</div>
+        <h1>{copy.hero.title}</h1>
+        <p>{copy.hero.description}</p>
+        <div class="hero-actions">
+          <a class="button primary" href={buildLocaleHref(locale, routes.download.path)}>
+            {copy.hero.primaryCta}
+          </a>
+          <a class="button secondary" href={buildLocaleHref(locale, routes.docs.path)}>
+            {copy.hero.secondaryCta}
+          </a>
+        </div>
+        <p class="hero-note">{copy.hero.note}</p>
+      </article>
+
+      <aside class="hero-side hero-side--stage" data-reveal="2">
+        <div class="hero-visual">
+          <div class="hero-visual__header">
+            <span class="pill alt">{copy.showcase.panelLabel}</span>
+            <span class="hero-visual__status">{copy.showcase.status}</span>
+          </div>
+
+          <div class="hero-visual__frame">
+            <div class="hero-visual__toolbar">
+              <strong>{copy.showcase.fileName}</strong>
+              <span>{copy.showcase.panelLabel}</span>
+            </div>
+
+            <div class="hero-visual__formula">
+              <span>{copy.showcase.formulaLabel}</span>
+              <code>{copy.showcase.formulaValue}</code>
+            </div>
+
+            <div class="hero-visual__sheet">
+              {
+                copy.showcase.rows.map((row, rowIndex) => (
+                  <div class:list={["hero-visual__row", { "is-header": rowIndex === 0 }]}>
+                    {
+                      row.map((cell) => (
+                        <span class="hero-visual__cell">{cell}</span>
+                      ))
+                    }
+                  </div>
+                ))
+              }
+            </div>
+
+            <div class="hero-visual__tabs">
+              {
+                copy.showcase.tabs.map((tab, index) => (
+                  <span class:list={["hero-visual__tab", { active: index === 1 }]}>{tab}</span>
+                ))
+              }
+            </div>
+          </div>
+
+          {
+            copy.showcase.floatingNotes.map((note, index) => (
+              <div class:list={["hero-floating-note", `hero-floating-note--${index + 1}`]}>
+                <strong>{note.title}</strong>
+                <span>{note.summary}</span>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="hero-signal-grid">
+          {
+            heroSignals.map((signal) => (
+              <article class="signal-card">
+                <strong>{text(signal.title, locale)}</strong>
+                <span>{text(signal.summary, locale)}</span>
+              </article>
+            ))
+          }
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading" data-reveal>
+        <div class="eyebrow">{copy.sections.features.eyebrow}</div>
+        <h2>{copy.sections.features.title}</h2>
+        <p>{copy.sections.features.description}</p>
+      </div>
+      <div class="feature-grid">
+        {
+          featureGroups.map((feature, index) => (
+            <article class="card feature-card" data-reveal={String((index % 3) + 1)}>
+              <h3>{text(feature.title, locale)}</h3>
+              <p>{text(feature.summary, locale)}</p>
+              <ul class="bullet-list">
+                {
+                  feature.bullets.map((bullet) => (
+                    <li>{text(bullet, locale)}</li>
+                  ))
+                }
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading" data-reveal>
+        <div class="eyebrow">{copy.sections.useCases.eyebrow}</div>
+        <h2>{copy.sections.useCases.title}</h2>
+        <p>{copy.sections.useCases.description}</p>
+      </div>
+      <div class="use-case-grid">
+        {
+          useCases.map((entry, index) => (
+            <article
+              class:list={["card", "use-case-card", { spotlight: index === 0 }]}
+              data-reveal={String((index % 3) + 1)}
+            >
+              <div class="card-meta">
+                <span class="pill alt">{text(entry.audience, locale)}</span>
+              </div>
+              <h3>{text(entry.title, locale)}</h3>
+              <p>{text(entry.summary, locale)}</p>
+              <ul class="bullet-list">
+                {
+                  entry.outcomes.map((outcome) => (
+                    <li>{text(outcome, locale)}</li>
+                  ))
+                }
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading" data-reveal>
+        <div class="eyebrow">{copy.sections.scope.eyebrow}</div>
+        <h2>{copy.sections.scope.title}</h2>
+        <p>{copy.sections.scope.description}</p>
+      </div>
+      <div class="split-grid">
+        <article class="panel scope-panel scope-panel--supported" data-reveal>
+          <h3>{locale === "en" ? "Supported today" : "当前支持"}</h3>
+          <ul class="bullet-list">
+            {
+              supportedScope.map((item) => (
+                <li>{text(item, locale)}</li>
+              ))
+            }
+          </ul>
+        </article>
+
+        <article class="panel scope-panel scope-panel--limits" data-reveal="2">
+          <h3>{locale === "en" ? "Not supported yet" : "暂不支持"}</h3>
+          <ul class="bullet-list">
+            {
+              notSupportedYet.map((item) => (
+                <li>{text(item, locale)}</li>
+              ))
+            }
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading" data-reveal>
+        <div class="eyebrow">{copy.sections.quickStart.eyebrow}</div>
+        <h2>{copy.sections.quickStart.title}</h2>
+        <p>{copy.sections.quickStart.description}</p>
+      </div>
+      <div class="quickstart-track">
+        {
+          quickStartSteps.map((step, index) => (
+            <article class="quickstart-step" data-reveal={String((index % 3) + 1)}>
+              <div class="quickstart-step__number">{step.step}</div>
+              <h3>{text(step.title, locale)}</h3>
+              <p>{text(step.summary, locale)}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading" data-reveal>
+        <div class="eyebrow">{copy.sections.preview.eyebrow}</div>
+        <h2>{copy.sections.preview.title}</h2>
+        <p>{copy.sections.preview.description}</p>
+      </div>
+      <article class="showcase-stage" data-reveal="2">
+        <div class="showcase-stage__intro">
+          <div>
+            <span class="showcase-stage__label">{copy.showcase.panelLabel}</span>
+            <h3>{copy.showcase.flowTitle}</h3>
+          </div>
+          <p>{copy.showcase.flowSummary}</p>
+        </div>
+
+        <div class="showcase-flow">
+          {
+            previewCards.map((card, index) => (
+              <article class:list={["showcase-node", `accent-${card.accent}`]}>
+                <span class="showcase-node__index">0{index + 1}</span>
+                <h3>{text(card.title, locale)}</h3>
+                <p>{text(card.summary, locale)}</p>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="showcase-rail">
+          {
+            workflowSteps.map((step, index) => (
+              <article class="workflow-step-card" data-reveal={String((index % 3) + 1)}>
+                <span class="workflow-step-card__step">{step.step}</span>
+                <div>
+                  <strong>{text(step.title, locale)}</strong>
+                  <p>{text(step.summary, locale)}</p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band" data-reveal>
+        <h3>{copy.sections.cta.title}</h3>
+        <p>{copy.sections.cta.description}</p>
+        <div class="hero-actions">
+          <a class="button primary" href={buildLocaleHref(locale, routes.download.path)}>
+            {copy.sections.cta.primaryCta}
+          </a>
+          <a class="button secondary" href={buildLocaleHref(locale, routes.contact.path)}>
+            {copy.sections.cta.secondaryCta}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

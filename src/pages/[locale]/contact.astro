@@ -1,0 +1,76 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import {
+  contactChannels,
+  faqEntries,
+  getStaticLocalePaths,
+  requireLocale,
+  siteCopy,
+  text,
+} from "../../data/site";
+
+export function getStaticPaths() {
+  return getStaticLocalePaths();
+}
+
+const locale = requireLocale(Astro.params.locale);
+const copy = siteCopy[locale];
+---
+
+<SiteLayout
+  locale={locale}
+  relativePath="/contact/"
+  title={copy.contactPage.title}
+  description={copy.contactPage.description}
+>
+  <section class="section">
+    <div class="container page-intro" data-reveal>
+      <div class="eyebrow">{locale === "en" ? "Contact" : "联系"}</div>
+      <h1>{copy.contactPage.title}</h1>
+      <p>{copy.contactPage.description}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-grid">
+      {
+        contactChannels.map((channel, index) => (
+          <article class="panel" data-reveal={String((index % 3) + 1)}>
+            <div class="card-meta">
+              <span class="pill">{channel.kind === "email" ? "Email" : "GitHub"}</span>
+            </div>
+            <h3>{text(channel.title, locale)}</h3>
+            <p>{text(channel.note, locale)}</p>
+            <a
+              class="card-action secondary"
+              href={channel.kind === "email" ? `mailto:${channel.value}` : channel.value}
+              target={channel.kind === "github" ? "_blank" : undefined}
+              rel={channel.kind === "github" ? "noreferrer" : undefined}
+            >
+              {channel.value}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading" data-reveal>
+        <div class="eyebrow">{locale === "en" ? "FAQ" : "常见问题"}</div>
+        <h2>{copy.contactPage.faqTitle}</h2>
+      </div>
+      <div class="split-grid">
+        {
+          faqEntries.slice(3).map((entry, index) => (
+            <article class="panel" data-reveal={String((index % 3) + 1)}>
+              <h3>{text(entry.question, locale)}</h3>
+              <p>{text(entry.answer, locale)}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</SiteLayout>
