@@ -742,7 +742,7 @@ img {
 
 .quickstart-step {
   position: relative;
-  padding: 3.2rem 1.25rem 1.25rem;
+  padding: 4.4rem 1.25rem 1.25rem;
   border-radius: var(--radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.74);
   background: rgba(255, 255, 255, 0.82);
