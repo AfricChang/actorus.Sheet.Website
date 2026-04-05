@@ -1189,9 +1189,7 @@ th {
   }
 
   .hero-floating-note {
-    position: static;
-    max-width: none;
-    margin-top: 0.85rem;
+    display: none;
   }
 
   .showcase-flow::before,
@@ -1201,7 +1199,6 @@ th {
 }
 
 @media (max-width: 720px) {
-  .card-grid,
   .docs-grid,
   .stat-grid {
     grid-template-columns: 1fr;

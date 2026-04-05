@@ -70,9 +70,11 @@ function isActive(path: string) {
   </head>
   <body>
     <div class="site-shell">
-      <div class="announcement">
-        <div class="container">{copy.announcement}</div>
-      </div>
+      {copy.announcement && (
+        <div class="announcement">
+          <div class="container">{copy.announcement}</div>
+        </div>
+      )}
       <header class="site-header">
         <div class="container header-inner">
           <a class="brand-lockup" href={buildLocaleHref(locale, routes.home.path)}>

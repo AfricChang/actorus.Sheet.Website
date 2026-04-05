@@ -90,11 +90,11 @@ export type LinkToken =
 
 export const defaultLocale: Locale = "en";
 export const siteName = "AcTorus.Sheet";
-export const productRepositoryUrl = "https://github.com/AfricChang/acTorus.Sheet";
+export const productRepositoryUrl = "https://github.com/AfricChang/actorus.Sheet.Website";
 export const productIssuesUrl = `${productRepositoryUrl}/issues`;
 export const productReleasesUrl = `${productRepositoryUrl}/releases`;
-export const websiteRepositoryUrl = "https://github.com/AfricChang/actorus.Sheet.Website";
-export const websiteExamplesUrl = `${websiteRepositoryUrl}/tree/main/Examples`;
+export const websiteRepositoryUrl = productRepositoryUrl;
+export const websiteExamplesUrl = `${productRepositoryUrl}/tree/main/Examples`;
 export const publicContactEmail = "africchang@gmail.com";
 export const siteBase = import.meta.env.BASE_URL ?? "/";
 
@@ -135,8 +135,7 @@ export const siteCopy = {
     browserTitle: "AcTorus.Sheet",
     siteDescription:
       "Spreadsheet engine for reading, calculating, and saving .xlsx workbooks in .NET applications and services.",
-    announcement:
-      "Pricing stays private. Trial access and commercial inquiries are available on request.",
+    announcement: "",
     footerNote:
       "AcTorus.Sheet helps teams automate spreadsheet workflows in applications, services, and internal systems without relying on desktop spreadsheet software.",
     footerTagline:
@@ -146,17 +145,17 @@ export const siteCopy = {
       title: "Make .xlsx work inside your .NET applications and services.",
       description:
         "Open templates, write business data, recalculate formulas, and save output files as part of batch jobs, internal systems, and service-side workflows.",
-      primaryCta: "Try it",
+      primaryCta: "Get started",
       secondaryCta: "Read docs",
       note:
-        "Start with the public docs and download paths, then reach out when you want a fuller trial or commercial discussion.",
+        "Free to evaluate. Commercial licensing is available — contact us when you are ready to discuss.",
     },
     sections: {
       features: {
         eyebrow: "Core Features",
         title: "The key capabilities that matter in workbook automation.",
         description:
-          "This is about practical fit: whether the engine can enter your real workbook flow, not just look good in a feature list.",
+          "Covers workbook I/O, formula calculation, file structure handling, and .NET integration — the practical building blocks for real workbook workflows.",
       },
       useCases: {
         eyebrow: "Use Cases",
@@ -168,7 +167,7 @@ export const siteCopy = {
         eyebrow: "Support Scope",
         title: "Clear about what is supported today.",
         description:
-          "The supported scope and the important limits are both visible up front, so teams can judge fit without guesswork.",
+          "Here is what the engine handles today and what falls outside the current scope, so you can judge fit before going further.",
       },
       quickStart: {
         eyebrow: "Quick Start",
@@ -178,15 +177,15 @@ export const siteCopy = {
       },
       preview: {
         eyebrow: "Workflow Snapshot",
-        title: "Show the full path from workbook input to service-side output.",
+        title: "From workbook input to service-side output.",
         description:
-          "A product homepage should make the processing model obvious: load a workbook, push in data, recalculate formulas, then hand the result to the next job or API response.",
+          "Load a workbook, push in data, recalculate formulas, then hand the result to the next job or API response.",
       },
       cta: {
         title: "Ready to bring workbook processing into your own system?",
         description:
-          "Start with the docs and downloads. When you need trial access, evaluation help, or commercial details, contact us directly.",
-        primaryCta: "Open download page",
+          "Free to evaluate — download the examples and releases, run them in your own .NET flow. Commercial licensing is available when you are ready.",
+        primaryCta: "Download",
         secondaryCta: "Contact us",
       },
     },
@@ -210,22 +209,22 @@ export const siteCopy = {
     downloadPage: {
       title: "Download",
       description:
-        "Public entry points for examples, releases, trial requests, and commercial contact.",
-      ctaTitle: "Need more than the public download paths?",
+        "Free to evaluate. Download the examples and releases to run in your own .NET workflow.",
+      ctaTitle: "Interested in commercial licensing?",
       ctaBody:
-        "Use the contact page when you want trial access, evaluation help, or a commercial discussion.",
-      faqTitle: "Common download questions",
+        "Commercial licensing is available and currently being finalized. Contact us to discuss your use case and get early access details.",
+      faqTitle: "Common questions",
     },
     contactPage: {
       title: "Contact",
       description:
-        "Use email for trial and commercial inquiries, and use GitHub for public technical feedback or issue reports.",
+        "For commercial licensing inquiries, reach out by email. For public technical feedback or bug reports, use GitHub Issues.",
       faqTitle: "Before you contact us",
     },
     docsDetail: {
       backToDocs: "Back to docs",
-      relatedCta: "Need trial access or a commercial conversation?",
-      relatedButton: "Open contact page",
+      relatedCta: "Interested in commercial licensing?",
+      relatedButton: "Contact us",
     },
     showcase: {
       panelLabel: "Workbook Runtime",
@@ -259,8 +258,7 @@ export const siteCopy = {
     browserTitle: "AcTorus.Sheet",
     siteDescription:
       "面向 .NET 应用和服务的电子表格引擎，可读取、计算并保存 .xlsx 工作簿。",
-    announcement:
-      "价格暂不公开。试用申请和商业咨询可通过联系页发起。",
+    announcement: "",
     footerNote:
       "AcTorus.Sheet 适合需要在应用、服务和内部系统里自动处理电子表格工作流的团队，不依赖桌面电子表格软件。",
     footerTagline:
@@ -270,17 +268,17 @@ export const siteCopy = {
       title: "让 .xlsx 在你的 .NET 应用和服务里真正跑起来。",
       description:
         "读取模板、写入业务数据、重算公式、保存结果，把工作簿处理带进批处理任务、业务系统和服务端流程。",
-      primaryCta: "立即试用",
+      primaryCta: "开始使用",
       secondaryCta: "查看文档",
       note:
-        "先从公开文档和下载入口快速了解产品；当你需要更完整的试用或商业沟通时，再直接联系我们。",
+        "可免费评估使用。商业授权方案正在规划中，有意向请联系我们。",
     },
     sections: {
       features: {
         eyebrow: "核心功能",
         title: "覆盖从文件读写到公式重算的关键能力。",
         description:
-          "重点不是堆术语，而是帮助你快速判断：它能不能进入你的真实工作簿流程。",
+          "涵盖工作簿读写、公式计算、文件结构处理和 .NET 集成，是构建真实工作簿流程的实用基础模块。",
       },
       useCases: {
         eyebrow: "典型场景",
@@ -290,9 +288,9 @@ export const siteCopy = {
       },
       scope: {
         eyebrow: "支持范围",
-        title: "清楚说明当前支持什么、暂不支持什么。",
+        title: "当前支持什么、暂不支持什么。",
         description:
-          "把当前可用范围和明确边界都讲清楚，评估时能更快判断是否适合。",
+          "以下是引擎目前能处理的内容，以及当前范围之外的部分，方便你在深入评估前快速判断是否适合。",
       },
       quickStart: {
         eyebrow: "快速开始",
@@ -302,15 +300,15 @@ export const siteCopy = {
       },
       preview: {
         eyebrow: "工作流画面",
-        title: "从输入工作簿到输出结果，把处理链路一眼讲明白。",
+        title: "从输入工作簿到输出结果。",
         description:
-          "这一区直接展示它如何读取 .xlsx、写入数据、触发公式重算，并把结果接到任务、接口或报表流程里。",
+          "读取工作簿、写入数据、触发公式重算，再把结果交给下一个任务、接口或报表流程。",
       },
       cta: {
         title: "准备把电子表格能力接进你的系统了吗？",
         description:
-          "先从文档和下载开始；如果你需要试用、评估帮助或商业信息，就直接联系我们。",
-        primaryCta: "打开下载页",
+          "可免费评估——下载示例和发布包，在自己的 .NET 流程里跑起来。准备好后可联系我们了解商业授权。",
+        primaryCta: "下载",
         secondaryCta: "联系我们",
       },
     },
@@ -334,22 +332,22 @@ export const siteCopy = {
     downloadPage: {
       title: "下载",
       description:
-        "公开示例、公开发布、试用申请和商业咨询的统一入口。",
-      ctaTitle: "需要超过公开下载入口的支持？",
+        "可免费评估使用。下载示例和发布包，在自己的 .NET 流程里验证。",
+      ctaTitle: "有商业授权意向？",
       ctaBody:
-        "如果你需要试用资格、评估帮助或商业沟通，请直接使用联系页。",
-      faqTitle: "下载常见问题",
+        "商业授权方案正在规划中，欢迎提前联系我们沟通使用场景和授权细节。",
+      faqTitle: "常见问题",
     },
     contactPage: {
       title: "联系",
       description:
-        "试用申请和商务咨询走邮箱，公开技术反馈和问题报告走 GitHub。",
+        "商业授权咨询请发邮件。公开技术反馈和问题报告请使用 GitHub Issues。",
       faqTitle: "联系前你可能想知道",
     },
     docsDetail: {
       backToDocs: "返回文档",
-      relatedCta: "需要试用资格或商业沟通？",
-      relatedButton: "打开联系页",
+      relatedCta: "有商业授权意向？",
+      relatedButton: "联系我们",
     },
     showcase: {
       panelLabel: "工作簿运行画面",
@@ -660,12 +658,12 @@ export const quickStartSteps: QuickStartStep[] = [
   {
     step: "04",
     title: {
-      en: "Request trial or commercial access if needed",
-      zh: "按需申请试用或商业支持",
+      en: "Contact us for commercial licensing",
+      zh: "商业授权请联系我们",
     },
     summary: {
-      en: "When the public materials are not enough, use the contact page for trial access or a commercial discussion.",
-      zh: "如果公开材料不足以覆盖你的评估需求，就通过联系页申请试用或商业沟通。",
+      en: "Free to evaluate. When you are ready to use it in a commercial product or service, reach out to discuss licensing.",
+      zh: "可免费评估使用。当你准备在商业产品或服务中使用时，联系我们沟通授权方案。",
     },
   },
 ];
@@ -833,49 +831,25 @@ export const downloadEntries: DownloadEntry[] = [
     linkToken: "productReleases",
   },
   {
-    key: "trial",
-    title: {
-      en: "Trial access",
-      zh: "试用申请",
-    },
-    summary: {
-      en: "Ask for trial access when the public materials are not enough for your evaluation.",
-      zh: "如果公开材料不足以完成评估，可以申请试用资格。",
-    },
-    accessLabel: {
-      en: "On request",
-      zh: "按需申请",
-    },
-    note: {
-      en: "Use the contact page for trial access and evaluation questions.",
-      zh: "通过联系页发起试用申请和评估问题沟通。",
-    },
-    ctaLabel: {
-      en: "Request trial",
-      zh: "申请试用",
-    },
-    linkToken: "contact",
-  },
-  {
     key: "commercial",
     title: {
-      en: "Commercial access",
-      zh: "商业咨询",
+      en: "Commercial licensing",
+      zh: "商业授权",
     },
     summary: {
-      en: "Contact us when you want pricing, licensing, or a commercial discussion.",
-      zh: "如果你需要价格、许可或商业合作信息，请直接联系我们。",
+      en: "Free to evaluate. Commercial licensing is available for production and commercial use — contact us to discuss.",
+      zh: "可免费评估使用。商业产品或服务中使用需要商业授权，欢迎联系我们沟通。",
     },
     accessLabel: {
       en: "Contact us",
       zh: "联系获取",
     },
     note: {
-      en: "The public site does not publish a public price table.",
-      zh: "公开站不展示价格表。",
+      en: "Licensing details are not published publicly. Reach out to start a conversation about your use case.",
+      zh: "授权方案不在公开站展示，请直接联系我们了解适合你场景的方案。",
     },
     ctaLabel: {
-      en: "Contact us",
+      en: "Get in touch",
       zh: "联系我们",
     },
     linkToken: "contact",
@@ -886,14 +860,14 @@ export const contactChannels: ContactChannel[] = [
   {
     key: "email",
     title: {
-      en: "Trial and commercial inquiries",
-      zh: "试用与商务咨询",
+      en: "Commercial licensing inquiries",
+      zh: "商业授权咨询",
     },
     kind: "email",
     value: publicContactEmail,
     note: {
-      en: "Use email for trial requests, commercial questions, and direct product discussions.",
-      zh: "邮箱主要用于试用申请、商务咨询和直接产品沟通。",
+      en: "Reach out by email to discuss commercial licensing, your use case, or any direct product questions.",
+      zh: "如需了解商业授权方案、沟通使用场景或直接咨询产品问题，请发邮件联系。",
     },
   },
   {
@@ -905,8 +879,8 @@ export const contactChannels: ContactChannel[] = [
     kind: "github",
     value: productIssuesUrl,
     note: {
-      en: "Use GitHub when the topic can be discussed publicly and is appropriate for an issue report.",
-      zh: "如果问题适合公开讨论，也适合作为 issue 进行跟踪，可优先使用 GitHub。",
+      en: "Open a GitHub issue for bug reports, feature requests, or any technical question that can be discussed publicly.",
+      zh: "如果是 bug 报告、功能建议或可以公开讨论的技术问题，请直接在 GitHub 提 issue。",
     },
   },
   {
@@ -918,8 +892,8 @@ export const contactChannels: ContactChannel[] = [
     kind: "github",
     value: websiteRepositoryUrl,
     note: {
-      en: "Use GitHub to inspect this public website repository, the docs, and the example materials before contacting us.",
-      zh: "如果你想在联系前先了解当前公开网站仓库、文档和示例材料，也可以先查看 GitHub。",
+      en: "Browse the public website repository, docs, and example materials.",
+      zh: "查看公开网站仓库、文档和示例材料。",
     },
   },
 ];
@@ -972,23 +946,12 @@ export const faqEntries: FaqEntry[] = [
   {
     key: "trial",
     question: {
-      en: "How do I get trial access?",
-      zh: "如何申请试用？",
+      en: "Is it free to use?",
+      zh: "可以免费使用吗？",
     },
     answer: {
-      en: "Use the contact page and describe your evaluation goal, workflow, and what you want to test.",
-      zh: "通过联系页提交你的评估目标、工作流背景以及希望验证的内容即可。",
-    },
-  },
-  {
-    key: "commercial",
-    question: {
-      en: "How do I ask about commercial access or pricing?",
-      zh: "如何咨询商业授权或价格？",
-    },
-    answer: {
-      en: "Use the contact page for direct commercial questions. Pricing is not published on the public website.",
-      zh: "请通过联系页发起直接商务咨询。价格不会在公开站上展示。",
+      en: "Free to evaluate and test. Commercial use in production products or services requires a commercial license — contact us to discuss.",
+      zh: "可以免费评估和测试使用。在商业产品或服务中用于生产环境需要商业授权，请联系我们沟通。",
     },
   },
 ] satisfies FaqEntry[];
