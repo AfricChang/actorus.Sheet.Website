@@ -1,21 +1,17 @@
-# AcTorus.Sheet Public Examples
+# AcTorus.Sheet Examples
 
-This folder keeps the user-facing example code for the public website repository.
+Public example code for [AcTorus.Sheet](https://africchang.github.io/actorus.Sheet.Website/).
 
-It is intentionally not a mirror of the main product repository. The goal here is to show a few concrete workbook automation flows that are easy to browse, understand, and discuss during evaluation.
+Each example is a single self-contained `.cs` file with a bilingual README. They are kept small and scenario-focused so they are easy to read and run during evaluation.
 
-## Example set
+## Examples
 
-- `workbook-processing`
-  - create or load a workbook, write data, calculate, and save
-- `formula-calculation`
-  - run workbook formulas, named ranges, and cross-sheet references
-- `service-workflow`
-  - call the hosted workbook endpoints from a backend-style client flow
+- `workbook-processing` — create a workbook, write data, calculate formulas, save to `.xlsx`, and reopen to verify results
+- `formula-calculation` — named ranges, cross-sheet references, and a practical mix of formula families
+- `reporting-workload` — report generation with formulas, page setup, protection, hyperlinks, comments, filters, and conditional formatting
+- `service-workflow` — call a running AcTorus.Sheet service host from a .NET client (requires a running service instance)
 
 ## Notes
 
-- each example keeps one code file plus bilingual README files
-- examples are scenario-oriented and deliberately smaller than the main repo samples
-- when you need the full engine implementation or the latest regression-backed sample host, use the main repository:
-  - `https://github.com/AfricChang/acTorus.Sheet`
+- examples target the current public supported scope
+- for questions or issues, use [GitHub Issues](https://github.com/AfricChang/actorus.Sheet.Website/issues)

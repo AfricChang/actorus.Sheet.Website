@@ -1,14 +1,21 @@
 # Formula Calculation Example
 
-This example focuses on workbook calculation rather than file packaging.
+Shows how to use named ranges, cross-sheet references, and a practical mix of formula families in a single workbook.
 
-## What it shows
+## What it covers
 
-- common formula calculation
-- named range definition and reuse
-- cross-sheet references
-- mixed numeric and text results
+- defining and using named ranges across worksheets
+- cross-sheet formula references
+- aggregation formulas: `SUM`, `SUMPRODUCT`, `TEXTJOIN`
+- date formulas: `NETWORKDAYS`
+- financial formulas: `PMT`
+- conditional logic: `IF`
+- mixed numeric and text output
 
-## Why it matters
+## How to run
 
-Teams often need to keep spreadsheet logic in backend workflows instead of moving every rule into custom code. This example shows the engine handling a compact but realistic calculation slice.
+```bash
+dotnet run
+```
+
+No external dependencies. The example creates the workbook in memory, runs calculation, and prints results to the console.

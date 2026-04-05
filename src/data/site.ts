@@ -789,16 +789,16 @@ export const downloadEntries: DownloadEntry[] = [
       zh: "示例代码",
     },
     summary: {
-      en: "Browse public example code for workbook processing, formula calculation, and service-side workflows.",
-      zh: "查看面向工作簿处理、公式计算和服务端流程的公开示例代码。",
+      en: "Browse public example code for workbook processing, richer formula flows, reporting workloads, and service-side workflows.",
+      zh: "查看面向工作簿处理、更完整公式流、报表 workload 与服务端流程的公开示例代码。",
     },
     accessLabel: {
       en: "Public",
       zh: "公开",
     },
     note: {
-      en: "These examples live in the website repository and are curated for onboarding, evaluation, and product walkthroughs.",
-      zh: "这些示例保存在网站仓库中，适合用于上手、评估和产品级演示。",
+      en: "These examples live in the website repository and are curated for onboarding, evaluation, and workload-oriented product walkthroughs.",
+      zh: "这些示例保存在网站仓库中，适合用于上手、评估和以 workload 为中心的产品演示。",
     },
     ctaLabel: {
       en: "Open examples",

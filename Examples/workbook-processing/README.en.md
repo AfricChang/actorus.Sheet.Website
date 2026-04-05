@@ -1,20 +1,23 @@
 # Workbook Processing Example
 
-This example shows a compact workbook-processing flow:
+Shows a complete end-to-end workbook flow: create, write data, calculate, save to `.xlsx`, then reopen and verify.
 
-- create a workbook
-- write business data into cells
-- calculate formulas
-- save the workbook as `.xlsx`
+## What it covers
 
-## What to look for
+- creating a workbook and writing cell values and formulas
+- calculating formulas with `Calculate()`
+- setting a freeze pane and adding data validation
+- saving the workbook to a byte array with `Save()`
+- reopening the saved workbook with `OpenWorkbook()` and reading back results
 
-- `SheetRuntime` and `CreateSession()` establish the runtime entrypoint
-- `CreateWorkbook("Orders")` creates a new workbook for the workflow
-- cell values and formulas are written through familiar A1 addresses
-- `Calculate()` refreshes the formula cells before output
-- `Save()` produces the final workbook package bytes
+## How to run
 
-## Typical use
+```bash
+dotnet run
+```
 
-This pattern fits report generation, template filling, and automated workbook export jobs.
+No external dependencies. The example runs entirely in memory and prints results to the console.
+
+## Typical use cases
+
+Report generation, template filling, and automated workbook export — this is usually the first flow to validate when integrating the engine.

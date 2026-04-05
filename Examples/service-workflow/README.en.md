@@ -1,18 +1,27 @@
 # Service Workflow Example
 
-This example shows the service-side story from a client point of view.
+Shows how to call an AcTorus.Sheet service host from a .NET HTTP client.
 
-## Flow
+## What it covers
 
-- send workbook content to the hosted calculation endpoint
-- save the returned workbook payload
-- open it again with recalculation-on-open enabled
-- read the final formula result from the returned workbook contract
-
-## Typical use
-
-This pattern fits backend APIs, internal workflow services, queued jobs, and other hosted workbook-processing pipelines.
+- reading service metadata from the `/metadata` endpoint
+- creating a workbook via `/workbooks/create`
+- sending a workbook contract to `/workbooks/calculate` for server-side formula calculation
+- running a batch calculation via `/workbooks/batch-calculate`
+- saving the result via `/workbooks/save`
+- reopening the saved workbook via `/workbooks/open` with recalculation enabled
+- reading formula results from the returned workbook contract
 
 ## Prerequisite
 
-Run a compatible `AcTorus.Sheet` service host first, then pass its base URL to the example when needed.
+A running AcTorus.Sheet service host is required. Pass its base URL as the first argument:
+
+```bash
+dotnet run -- http://localhost:5211
+```
+
+If no argument is provided, the example defaults to `http://localhost:5211`.
+
+## Typical use cases
+
+Backend APIs, internal workflow services, and queued workbook-processing jobs where the engine runs as a hosted service rather than an embedded library.

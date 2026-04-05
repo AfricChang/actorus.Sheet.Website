@@ -1,21 +1,17 @@
-# AcTorus.Sheet 公开示例
+# AcTorus.Sheet 示例
 
-这个目录保存官网仓库中的用户导向示例代码。
+[AcTorus.Sheet](https://africchang.github.io/actorus.Sheet.Website/) 的公开示例代码。
 
-这里不会做成主产品仓库的完整镜像，而是只保留几组便于浏览、理解和评估沟通的典型工作簿自动化示例。
+每个示例是一个独立的 `.cs` 文件，附带中英文 README。示例保持小而聚焦，方便在评估时直接阅读和运行。
 
-## 示例集合
+## 示例列表
 
-- `workbook-processing`
-  - 创建或读取工作簿，写入数据、执行计算并保存
-- `formula-calculation`
-  - 演示工作簿公式、名称范围和跨工作表引用
-- `service-workflow`
-  - 从后端式客户端流程调用托管工作簿接口
+- `workbook-processing` — 创建工作簿、写入数据、计算公式、保存为 `.xlsx`，并重新打开验证结果
+- `formula-calculation` — 名称范围、跨工作表引用，以及常用公式家族的组合使用
+- `reporting-workload` — 报表生成，包含公式、页面设置、保护、超链接、批注、筛选和条件格式
+- `service-workflow` — 从 .NET 客户端调用运行中的 AcTorus.Sheet 服务端（需要先启动服务实例）
 
 ## 说明
 
-- 每个示例保持为一个代码文件，加上中英文 README
-- 示例以场景为中心，刻意比主仓库里的 sample host 更小、更直观
-- 如果你需要完整引擎实现或最新的回归样例入口，请查看主产品仓库：
-  - `https://github.com/AfricChang/acTorus.Sheet`
+- 示例覆盖当前公开支持范围内的场景
+- 问题或建议请通过 [GitHub Issues](https://github.com/AfricChang/actorus.Sheet.Website/issues) 提交
