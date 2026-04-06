@@ -1,36 +1,66 @@
 ---
 title: "公式支持"
-description: "介绍产品重点支持的公式类型和计算场景。"
-summary: "AcTorus.Sheet 覆盖了一批适合工作簿自动化和重新计算的常见公式家族。"
+description: "当前支持的公式函数完整列表。"
+summary: "AcTorus.Sheet 文档化了 298 个公开函数名，覆盖服务端工作簿自动化中最常用、最有价值的公式家族。"
 category: formulas
 order: 30
 ---
 
-## 这里说的公式支持是什么意思
+## 如何判断公式适配性
 
-AcTorus.Sheet 面向的是工作簿自动化，因此公式支持重点覆盖真实 `.xlsx` 流程里最常见、最有价值的公式家族。
+如果公式支持是你采用决策的关键，请直接对照下方的函数名列表核查，不要依赖"支持主要公式家族"这类笼统描述。
 
-## 常见公式家族
-
-产品支持一批常见公式，覆盖例如：
-
-- math
-- text
-- date and time
-- lookup and reference
-- logical formulas
-- statistical formulas
-- financial formulas
-
-## 常见计算场景
-
-产品适合处理这些场景：
+## 支持的计算场景
 
 - 跨工作表公式
 - 名称范围公式
-- 更新数据后的工作簿重算
-- 服务端结果生成流程中的公式计算
+- 数据更新后的工作簿重算
+- 报表和模板工作簿计算
 
-## 实际使用时的预期
+## 当前范围之外
 
-公式引擎是为真实自动化流程准备的，但如果你的文件依赖较少见的电子表格能力，仍然建议先看限制说明。
+- 3D 引用
+- 外部工作簿引用
+- 目标求解 / 模拟运算表
+
+---
+
+## 聚合 / 计数
+
+`SUM`, `COUNT`, `COUNTA`, `AVERAGE`, `MIN`, `MAX`, `COUNTBLANK`, `COUNTIF`, `SUMIF`, `AVERAGEIF`, `COUNTIFS`, `SUMIFS`, `AVERAGEIFS`
+
+## 统计
+
+`MEDIAN`, `MODE`, `MODE.SNGL`, `STDEV`, `STDEV.S`, `STDEV.P`, `STDEVP`, `VAR`, `VAR.S`, `VAR.P`, `VARP`, `LARGE`, `SMALL`, `PERCENTILE`, `PERCENTILE.INC`, `PERCENTILE.EXC`, `PERCENTRANK`, `PERCENTRANK.INC`, `PERCENTRANK.EXC`, `QUARTILE`, `QUARTILE.INC`, `QUARTILE.EXC`, `RANK`, `RANK.EQ`, `RANK.AVG`, `AVERAGEA`, `MAXA`, `MINA`, `STDEVA`, `STDEVPA`, `VARA`, `VARPA`, `GEOMEAN`, `HARMEAN`, `STANDARDIZE`, `NORMSDIST`, `NORM.S.DIST`, `NORMSINV`, `NORM.S.INV`, `NORMDIST`, `NORM.DIST`, `NORMINV`, `NORM.INV`, `LOGNORMDIST`, `LOGNORM.DIST`, `LOGINV`, `LOGNORM.INV`, `WEIBULL`, `WEIBULL.DIST`, `BINOMDIST`, `BINOM.DIST`, `BINOM.DIST.RANGE`, `CRITBINOM`, `BINOM.INV`, `NEGBINOMDIST`, `NEGBINOM.DIST`, `HYPGEOMDIST`, `HYPGEOM.DIST`, `EXPONDIST`, `EXPON.DIST`, `POISSON`, `POISSON.DIST`, `CONFIDENCE`, `CONFIDENCE.NORM`, `FISHER`, `FISHERINV`, `GAUSS`, `PHI`, `ERF`, `ERF.PRECISE`, `ERFC`, `ERFC.PRECISE`, `AVEDEV`, `DEVSQ`, `SKEW`, `SKEW.P`, `KURT`, `TRIMMEAN`, `ZTEST`, `Z.TEST`, `CORREL`, `PEARSON`, `RSQ`, `SLOPE`, `INTERCEPT`, `FORECAST`, `FORECAST.LINEAR`, `STEYX`, `COVAR`, `COVARIANCE.P`, `COVARIANCE.S`, `SUMX2MY2`, `SUMX2PY2`, `SUMXMY2`
+
+## 数学
+
+`ABS`, `ROUND`, `ROUNDUP`, `ROUNDDOWN`, `INT`, `CEILING`, `FLOOR`, `TRUNC`, `SIGN`, `EXP`, `LN`, `LOG`, `LOG10`, `PRODUCT`, `SUMSQ`, `FACT`, `FACTDOUBLE`, `COMBIN`, `COMBINA`, `PERMUT`, `PERMUTATIONA`, `MULTINOMIAL`, `GCD`, `LCM`, `PI`, `RADIANS`, `DEGREES`, `SQRTPI`, `SIN`, `COS`, `TAN`, `COT`, `SEC`, `CSC`, `ASIN`, `ACOS`, `ATAN`, `ATAN2`, `SINH`, `COSH`, `TANH`, `COTH`, `SECH`, `CSCH`, `ASINH`, `ACOSH`, `ATANH`, `MOD`, `POWER`, `SQRT`, `QUOTIENT`, `MROUND`, `EVEN`, `ODD`
+
+## 逻辑 / 错误 / 信息
+
+`IF`, `IFERROR`, `IFNA`, `AND`, `OR`, `NOT`, `TRUE`, `FALSE`, `ISBLANK`, `ISNUMBER`, `ISTEXT`, `ISNONTEXT`, `ISLOGICAL`, `ISERROR`, `ISERR`, `ISNA`, `ISEVEN`, `ISODD`, `ERROR.TYPE`, `TYPE`, `ISREF`, `N`, `NA`
+
+## 文本 / 值
+
+`LEN`, `CONCAT`, `CONCATENATE`, `TEXTJOIN`, `LEFT`, `RIGHT`, `UPPER`, `LOWER`, `TRIM`, `MID`, `EXACT`, `FIND`, `SEARCH`, `REPLACE`, `SUBSTITUTE`, `REPT`, `PROPER`, `CHAR`, `CODE`, `CLEAN`, `T`, `VALUE`, `TEXT`
+
+## 日期 / 时间
+
+`DATE`, `TIME`, `YEAR`, `MONTH`, `DAY`, `HOUR`, `MINUTE`, `SECOND`, `DATEVALUE`, `TIMEVALUE`, `DAYS`, `DAYS360`, `TODAY`, `NOW`, `EDATE`, `EOMONTH`, `WEEKDAY`, `WEEKNUM`, `ISOWEEKNUM`, `WORKDAY`, `NETWORKDAYS`
+
+## 查找 / 引用
+
+`INDEX`, `MATCH`, `VLOOKUP`, `HLOOKUP`, `XLOOKUP`, `XMATCH`, `OFFSET`, `INDIRECT`
+
+## 数组 / 形状
+
+`FILTER`, `SORT`, `UNIQUE`, `TRANSPOSE`, `ROWS`, `COLUMNS`, `CHOOSE`, `SUMPRODUCT`
+
+## 财务
+
+`FV`, `FVSCHEDULE`, `PV`, `PMT`, `NPER`, `RATE`, `EFFECT`, `NOMINAL`, `RRI`, `PDURATION`, `IPMT`, `ISPMT`, `PPMT`, `CUMIPMT`, `CUMPRINC`, `NPV`, `IRR`, `MIRR`, `XNPV`, `XIRR`, `DISC`, `INTRATE`, `RECEIVED`, `PRICEDISC`, `YIELDDISC`, `TBILLPRICE`, `TBILLYIELD`, `ACCRINTM`, `PRICEMAT`, `YIELDMAT`, `DOLLARDE`, `DOLLARFR`, `COUPPCD`, `COUPNCD`, `COUPNUM`, `COUPDAYBS`, `COUPDAYS`, `COUPDAYSNC`, `PRICE`, `YIELD`, `DURATION`, `MDURATION`, `ODDFPRICE`, `ODDFYIELD`, `ODDLPRICE`, `ODDLYIELD`, `SLN`, `SYD`, `DB`, `DDB`, `VDB`
+
+---
+
+另见：[限制说明](limitations)，了解当前公式范围之外的内容。

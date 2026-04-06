@@ -6,44 +6,48 @@ category: features
 order: 20
 ---
 
-## Core product areas
+## What AcTorus.Sheet covers
 
-AcTorus.Sheet focuses on four practical areas:
+AcTorus.Sheet is a headless `.NET` spreadsheet engine. It focuses on four practical areas.
 
 ## Workbook handling
 
 - create new workbooks
 - open existing `.xlsx` files
-- read and write worksheet data
-- save updated workbooks
+- read and write worksheet data using A1 or coordinate-based addressing
+- save updated workbooks as `.xlsx`
+- used-range tracking
 
-## Formula handling
+## Formula calculation
 
-- calculate common spreadsheet formulas
-- work with cross-sheet references
-- use named ranges
-- run recalculation as part of an automated workflow
+- 298 documented public function names across all major formula families
+- cross-sheet formula references
+- defined names (named ranges)
+- workbook recalculation on demand or on open/save
+- see [Formula Support](formula-support) for the complete function list
 
 ## Workbook file features
 
-- named ranges
-- merged cells
-- panes
-- styles
-- data validation
-- comments
-- hyperlinks
-- page setup
-- filters
+- workbook and worksheet structure management
+- merged cells, freeze panes
+- styles and number format codes
+- data validation (bounded subset)
+- comments and hyperlinks
+- page setup, print area, print titles, header and footer
+- auto-filter and sort-state metadata
+- worksheet and workbook protection metadata
+- conditional formatting (narrow subset: `cellIs`, `expression`)
 
-## Integration
+For boundary details on each feature, see [Workbook Features](workbook-features).
 
-You can use AcTorus.Sheet:
+## .NET integration
 
-- inside your own `.NET` application code
-- in backend jobs
-- in service-side spreadsheet workflows
+- embed directly in `.NET 8` or `.NET 9` application code
+- use in backend jobs, scheduled tasks, and service-side workflows
+- no dependency on desktop spreadsheet software or Office interop
 
-## Who this fits best
+## Who this fits
 
-The product is a strong fit for teams that need spreadsheet logic inside software, not for teams looking for a desktop spreadsheet editor.
+Strong fit for teams that need spreadsheet logic inside software — report generation, batch processing, server-side recalculation, and workbook pipeline automation.
+
+Not a fit for teams looking for a desktop editor, a browser spreadsheet control, or a rendering suite.

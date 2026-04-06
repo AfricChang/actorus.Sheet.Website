@@ -78,6 +78,13 @@ export interface WorkflowStep {
   summary: LocalizedText;
 }
 
+export interface ReleaseNote {
+  version: string;
+  date: string;
+  label: LocalizedText;
+  highlights: LocalizedText[];
+}
+
 export type LinkToken =
   | "home"
   | "docs"
@@ -214,6 +221,8 @@ export const siteCopy = {
       ctaBody:
         "Commercial licensing is available and currently being finalized. Contact us to discuss your use case and get early access details.",
       faqTitle: "Common questions",
+      whatsNewEyebrow: "What's New",
+      whatsNewCta: "View all releases",
     },
     contactPage: {
       title: "Contact",
@@ -337,6 +346,8 @@ export const siteCopy = {
       ctaBody:
         "商业授权方案正在规划中，欢迎提前联系我们沟通使用场景和授权细节。",
       faqTitle: "常见问题",
+      whatsNewEyebrow: "版本更新",
+      whatsNewCta: "查看所有发布",
     },
     contactPage: {
       title: "联系",
@@ -780,6 +791,33 @@ export const previewCards: PreviewCard[] = [
     accent: "tertiary",
   },
 ];
+
+export const latestRelease: ReleaseNote = {
+  version: "0.1.0",
+  date: "2026-04-06",
+  label: {
+    en: "First public release",
+    zh: "首个公开版本",
+  },
+  highlights: [
+    {
+      en: "Create, open, calculate, and save `.xlsx` workbooks in .NET 8 and .NET 9",
+      zh: "在 .NET 8 和 .NET 9 中创建、打开、计算并保存 `.xlsx` 工作簿",
+    },
+    {
+      en: "298 documented formula functions across all major families including financial, statistical, and lookup",
+      zh: "298 个已文档化的公式函数，覆盖财务、统计、查找等所有主要公式家族",
+    },
+    {
+      en: "Workbook features: named ranges, merged cells, freeze panes, styles, validation, comments, hyperlinks, page setup, filters, protection, and conditional formatting",
+      zh: "工作簿特性：名称范围、合并单元格、冻结窗格、样式、数据验证、批注、超链接、页面设置、筛选、保护和条件格式",
+    },
+    {
+      en: "Service host for API and batch-calculation workflows",
+      zh: "适用于 API 和批量计算工作流的服务端托管模式",
+    },
+  ],
+};
 
 export const downloadEntries: DownloadEntry[] = [
   {

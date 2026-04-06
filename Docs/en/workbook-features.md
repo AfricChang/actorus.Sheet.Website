@@ -1,38 +1,79 @@
 ---
 title: "Workbook Features"
-description: "A quick guide to the workbook and worksheet features that matter in day-to-day processing."
-summary: "AcTorus.Sheet goes beyond raw cell values and supports a practical subset of workbook structure and file features."
+description: "The current public .xlsx file-feature surface and its boundaries."
+summary: "AcTorus.Sheet supports a documented subset of workbook and worksheet features. Each area notes whether it is full support, a bounded subset, or round-trip only."
 category: workbook
 order: 40
 ---
 
-## More than cells and formulas
+## Core workbook capabilities
 
-Many workbook workflows need more than values and recalculation.
+- create new workbooks
+- open existing `.xlsx` files
+- read and write worksheet data
+- save updated `.xlsx` files
+- used-range tracking
+- A1 and coordinate-based range access
 
-AcTorus.Sheet also works with useful workbook and worksheet features such as:
+## Structure
 
-- named ranges
-- merged cells
-- panes
-- styles
-- validation
+- workbook-level named ranges
+- cross-worksheet references
+- worksheet collection management (add, get, activate)
+- merged ranges
+- freeze panes
+
+## Styles and presentation
+
+- basic style round-trip
+- number format codes
+- selected basic style properties (e.g. bold)
+
+## Validation, filtering, and sorting
+
+- data validation — bounded subset
+- worksheet auto-filter metadata — bounded subset
+- sort-state metadata — bounded subset
+
+> The public promise here is metadata persistence and round-trip. Interactive execution behavior is not part of the current scope.
+
+## Comments, hyperlinks, and page metadata
+
 - comments
 - hyperlinks
-- page setup
-- filters
+- page setup — bounded subset
+- header and footer — bounded subset
+- single print area
+- repeated print titles
 
-## Why this matters
+## Protection metadata
 
-These features help when you need to:
+- worksheet protection metadata
+- workbook protection metadata
 
-- keep workbook structure intact
-- preserve useful presentation details
-- process files that users will open later
-- generate output files that still look and behave correctly
+> Password-workflow productization and encrypted package support are not part of the current public scope.
 
-## Use it with the limitations page
+## Conditional formatting
 
-Workbook feature coverage is practical, not unlimited.
+- `cellIs` rules
+- `expression` rules
+- bounded differential-format payload
 
-If your files depend on specialized spreadsheet behaviors, read the limitations page before making a product decision.
+> Icon sets, color scales, and data bars are not part of the current public scope.
+
+## Packaging
+
+- `.xlsx`-first
+- bounded unknown-part and relationship preservation
+- package diagnostics
+
+## Explicitly out of scope
+
+- charts, shapes, chart sheets
+- rendering or print rendering
+- desktop designer or UI
+- `xls`, `xlsm`, `xlsb`, `ods`, `csv`, `txt`
+- encrypted packages
+- macros or VBA execution
+
+See also: [Limitations](limitations) and [Formula Support](formula-support).

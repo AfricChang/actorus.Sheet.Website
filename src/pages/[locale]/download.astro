@@ -4,6 +4,7 @@ import {
   downloadEntries,
   faqEntries,
   getStaticLocalePaths,
+  latestRelease,
   requireLocale,
   resolveLink,
   routes,
@@ -31,6 +32,35 @@ const externalTokens = ["productRepo", "productIssues", "productReleases", "exam
       <div class="eyebrow">{locale === "en" ? "Download" : "下载"}</div>
       <h1>{copy.downloadPage.title}</h1>
       <p>{copy.downloadPage.description}</p>
+    </div>
+  </section>
+
+  <!-- What's New -->
+  <section class="section">
+    <div class="container">
+      <article class="release-note panel" data-reveal>
+        <div class="release-note__header">
+          <div class="eyebrow">{copy.downloadPage.whatsNewEyebrow}</div>
+          <a
+            class="button ghost"
+            href={resolveLink("productReleases", locale)}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {copy.downloadPage.whatsNewCta}
+          </a>
+        </div>
+        <div class="release-note__meta">
+          <span class="pill alt">v{latestRelease.version}</span>
+          <span class="muted">{latestRelease.date}</span>
+          <span>{text(latestRelease.label, locale)}</span>
+        </div>
+        <ul class="bullet-list">
+          {latestRelease.highlights.map((item) => (
+            <li>{text(item, locale)}</li>
+          ))}
+        </ul>
+      </article>
     </div>
   </section>
 
